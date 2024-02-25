@@ -27,7 +27,7 @@ class Board:
         for row in range(len(self.matriz)):
             for col in range(len(self.matriz[0])):
                 pos_x = 30 * col
-                pos_y = 30 * row
+                pos_y = 100 + 30 * row
                 if self.matriz[row][col] == 0:
                     pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(pos_x, pos_y, 30, 30))
                 elif self.matriz[row][col] == 1:
@@ -42,8 +42,18 @@ class Board:
                     pygame.draw.rect(self.screen, (255,255,0), pygame.Rect(pos_x , pos_y , 30, 30))
                 elif self.matriz[row][col] == 'R':
                     pygame.draw.rect(self.screen, (255,0,0), pygame.Rect(pos_x , pos_y , 30, 30))
+                elif self.matriz[row][col] == 'PY':
+                    pygame.draw.rect(self.screen, (255,255,0), pygame.Rect(pos_x , pos_y , 30, 30))
+                    pygame.draw.circle(self.screen, (255,255,0), radius = 12, center=(pos_x+15,pos_y+15))
+                    pygame.draw.circle(self.screen, (0,0,0), radius = 12,width=2, center=(pos_x+15,pos_y+15))
+                  
 
                 if self.matriz[row][col] != 0:
                     pygame.draw.rect(self.screen, (169,169,169), pygame.Rect(pos_x, pos_y, 30, 30), 1)
+        
+        pygame.draw.circle(self.screen, (255, 255, 255), radius=65,center=(90,190))
+        pygame.draw.circle(self.screen, (255, 255, 255), radius=65,center=(360,190))
+        pygame.draw.circle(self.screen, (255, 255, 255), radius=65,center=(90,460))
+        pygame.draw.circle(self.screen, (255, 255, 255), radius=65,center=(360,460))
 
      
